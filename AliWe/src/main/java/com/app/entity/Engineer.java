@@ -5,19 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
 @Entity
 @Table(name = "engineers")
-@NoArgsConstructor 
-@AllArgsConstructor
-@Getter 
-@Setter 
-@ToString(exclude = "password") 
 public class Engineer extends User {
 	
 	@Column(nullable = false) 
@@ -28,5 +17,46 @@ public class Engineer extends User {
 	
 	@Column
 	private int age;
+	
+	public Engineer(String username, String password, String email, String specialization,
+			CurrentStatus status, int age) {
+		super(username, password, email);
+		this.specialization = specialization;
+		this.status = status;
+		this.age = age;
+	}
+
+	public Engineer() {
+		super();
+	}
+
+	public String getSpecialization() {
+		return specialization;
+	}
+
+	public void setSpecialization(String specialization) {
+		this.specialization = specialization;
+	}
+
+	public CurrentStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(CurrentStatus status) {
+		this.status = status;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "Engineer [id=" + super.getId() + ", username=" + super.getUsername() + ", email=" + super.getEmail() +", specialization=" + specialization + ", status=" + status + ", age=" + age + "]";
+	}
 	
 }
