@@ -32,6 +32,11 @@ public class ImplUserService implements IUserService {
     }
     
     @Override
+	public User getUserByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+    
+    @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -41,7 +46,7 @@ public class ImplUserService implements IUserService {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
         
-        existingUser.setUsername(user.getUsername());
+        existingUser.setName(user.getName());
         existingUser.setEmail(user.getEmail());
         // update other fields if needed
         

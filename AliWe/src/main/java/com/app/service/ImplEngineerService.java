@@ -42,12 +42,12 @@ public class ImplEngineerService implements IEngineerService {
 	public Engineer updateEngineer(Long id, Engineer engineer) {
 		Engineer existingEngineer = engineerRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Engineer not found"));
-		existingEngineer.setUsername(engineer.getUsername());
-        existingEngineer.setEmail(engineer.getEmail());
+		existingEngineer.setUser(engineer.getUser());
+        existingEngineer.setJobTitle(engineer.getJobTitle());
         existingEngineer.setSpecialization(engineer.getSpecialization());
-        existingEngineer.setPassword(engineer.getPassword());
+        existingEngineer.setCompany(engineer.getCompany());
         existingEngineer.setAge(engineer.getAge());
-        existingEngineer.setStatus(engineer.getStatus());
+        existingEngineer.setYearsOfExperience(engineer.getYearsOfExperience());
         
 		return engineerRepo.save(existingEngineer);
 	}

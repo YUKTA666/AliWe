@@ -17,4 +17,21 @@ public class SignUpController {
 		return "Welcome to the Registration Page Controller";
 		
 	}
+	
+//    @PostMapping("/register")
+//    public ResponseEntity<?> register(@RequestBody RegistrationRequest registrationRequest) {
+//        if (userService.existsByEmail(registrationRequest.getEmail())) {
+//            return ResponseEntity.badRequest().body("Email is already taken");
+//        }
+//
+//        User user = new User();
+//        user.setName(registrationRequest.getName());
+//        user.setEmail(registrationRequest.getEmail());
+//        user.setPassword(registrationRequest.getPassword());
+//        // Set other user properties as needed
+//
+//        userService.saveUser(user);
+//
+//        return ResponseEntity.status(HttpStatus.CREATED).body("Registration successful");
+//    }
 }

@@ -42,8 +42,9 @@ public class ImplStudentService implements IStudentService {
 	public Student updateStudent(Long id, Student student) {
 		Student existingStudent = studentRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
-		existingStudent.setUsername(student.getUsername());
-        existingStudent.setEmail(student.getEmail());
+		existingStudent.setDob(student.getDob());
+		existingStudent.setPercentage(student.getPercentage());
+		existingStudent.setUser(student.getUser());
 		return studentRepo.save(existingStudent);
 	}
 
