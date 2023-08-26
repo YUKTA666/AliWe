@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,8 +19,9 @@ public class Engineer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false)
-    private String Specialization;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stream_id")
+    private Stream stream;
 
 	@Column(nullable = false)
     private String jobTitle;
@@ -37,11 +39,11 @@ public class Engineer {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
     
-    public Engineer(Long id, String specialization, String jobTitle, String company, Integer yearsOfExperience,
+    public Engineer(Long id, Stream stream, String jobTitle, String company, Integer yearsOfExperience,
 			Integer age, User user) {
 		super();
 		this.id = id;
-		Specialization = specialization;
+		this.stream = stream;
 		this.jobTitle = jobTitle;
 		this.company = company;
 		this.yearsOfExperience = yearsOfExperience;
@@ -61,12 +63,12 @@ public class Engineer {
 		this.id = id;
 	}
 
-	public String getSpecialization() {
-		return Specialization;
+	public Stream getStream() {
+		return stream;
 	}
 
-	public void setSpecialization(String specialization) {
-		Specialization = specialization;
+	public void setStream(Stream stream) {
+		this.stream = stream;
 	}
 
 	public String getJobTitle() {
@@ -108,66 +110,11 @@ public class Engineer {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Engineer [id=" + id + ", Specialization=" + Specialization + ", jobTitle=" + jobTitle + ", company="
-				+ company + ", yearsOfExperience=" + yearsOfExperience + ", age=" + age + ", user=" + user + "]";
+		return "Engineer [id=" + id + ", stream=" + stream + ", jobTitle=" + jobTitle + ", company=" + company
+				+ ", yearsOfExperience=" + yearsOfExperience + ", age=" + age + ", user=" + user + "]";
 	}
 
 }
-//@Entity
-//@Table(name = "engineers")
-//public class Engineer extends User {
-//	
-//	@Column(nullable = false) 
-//	private String specialization;
-//	
-//	@Column(nullable = false) 
-//	private CurrentStatus status;
-//	
-//	@Column
-//	private int age;
-//	
-//	public Engineer(String username, String password, String email, String specialization,
-//			CurrentStatus status, int age) {
-//		super(username, password, email);
-//		this.specialization = specialization;
-//		this.status = status;
-//		this.age = age;
-//	}
-//
-//	public Engineer() {
-//		super();
-//	}
-//
-//	public String getSpecialization() {
-//		return specialization;
-//	}
-//
-//	public void setSpecialization(String specialization) {
-//		this.specialization = specialization;
-//	}
-//
-//	public CurrentStatus getStatus() {
-//		return status;
-//	}
-//
-//	public void setStatus(CurrentStatus status) {
-//		this.status = status;
-//	}
-//
-//	public int getAge() {
-//		return age;
-//	}
-//
-//	public void setAge(int age) {
-//		this.age = age;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Engineer [id=" + super.getId() + ", username=" + super.getUsername() + ", email=" + super.getEmail() +", specialization=" + specialization + ", status=" + status + ", age=" + age + "]";
-//	}
-//	
-//}

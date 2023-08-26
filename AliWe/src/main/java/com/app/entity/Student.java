@@ -78,25 +78,5 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", dob=" + dob + ", percentage=" + percentage + ", user=" + user + "]";
-	}
-
-    
+	}   
 }
-//@Entity
-//@Table(name = "students")
-//public class Student extends User{
-//
-//	public Student() {
-//		super();
-//	}
-//
-//	public Student(String username, String password, String email) {
-//		super(username, password, email);
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Student [id = " +super.getId()+ ", Name = "+ super.getUsername()+", Email = "+ super.getEmail()+"]";
-//	}
-//	
-//}

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dto.UserDTO;
+import com.app.dto.LoginRequest;
 import com.app.entity.User;
 import com.app.service.IUserService;
 
@@ -48,8 +48,8 @@ public class UserController {
     }
     
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
-        User user = new User(userDTO.getEmail() , userDTO.getPassword());
+    public ResponseEntity<User> createUser(@RequestBody LoginRequest loginRequest) {
+        User user = new User(loginRequest.getEmail() , loginRequest.getPassword());
         User savedUser = userService.createUser(user);
         return ResponseEntity.created(URI.create("/users/" + savedUser.getId())).body(savedUser);
     }

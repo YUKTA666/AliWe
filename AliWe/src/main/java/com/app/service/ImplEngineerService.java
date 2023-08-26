@@ -44,7 +44,7 @@ public class ImplEngineerService implements IEngineerService {
                 .orElseThrow(() -> new ResourceNotFoundException("Engineer not found"));
 		existingEngineer.setUser(engineer.getUser());
         existingEngineer.setJobTitle(engineer.getJobTitle());
-        existingEngineer.setSpecialization(engineer.getSpecialization());
+        existingEngineer.setStream(engineer.getStream());
         existingEngineer.setCompany(engineer.getCompany());
         existingEngineer.setAge(engineer.getAge());
         existingEngineer.setYearsOfExperience(engineer.getYearsOfExperience());
