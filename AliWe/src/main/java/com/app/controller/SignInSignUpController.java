@@ -35,7 +35,7 @@ public class SignInSignUpController {
 	@Autowired
 	private IUserService userService;
 
-	@PostMapping("/login")
+	@PostMapping("/signin")
 	public ResponseEntity<?> validateUserCreateToken(@RequestBody @Valid LoginRequest request) {
 		UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(request.getEmail(),
 				request.getPassword());

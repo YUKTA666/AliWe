@@ -69,5 +69,4 @@ public class ImplUserService implements IUserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
-
 }

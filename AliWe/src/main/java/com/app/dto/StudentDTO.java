@@ -30,4 +30,5 @@ public class StudentDTO {
 
     @NotNull(message = "User cannot be null")
     private User user;
+    
 }

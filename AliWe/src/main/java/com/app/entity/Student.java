@@ -48,4 +48,5 @@ public class Student {
 		this.percentage = percentage;
 		this.user = user;
 	}
+	
 }

@@ -58,5 +58,4 @@ public class ImplStreamService implements IStreamService {
 	public List<Stream> getAllStreams() {
 		return streamRepo.findAll();
 	}
-
 }

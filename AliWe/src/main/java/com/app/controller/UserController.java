@@ -53,7 +53,7 @@ public class UserController {
         return ResponseEntity.created(URI.create("/users/" + savedUser.getId())).body(savedUser);
     }
     
-    @GetMapping("/details")
+    @GetMapping("/AllUsersDetails")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);

@@ -21,4 +21,5 @@ public class ApiResponse {
 		super();
 		this.message = message;
 	}
+	
 }

@@ -44,7 +44,7 @@ public class EngineerController {
 		}
 	}
 	
-	@GetMapping("/details")
+	@GetMapping("/AllEngineers")
 	public List<Engineer> getDetails(){
 		return engineerService.getAllEngineers();
 	}

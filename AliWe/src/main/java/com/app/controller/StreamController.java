@@ -43,7 +43,7 @@ public class StreamController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedStream);
     }
 	
-	@GetMapping("/view")
+	@GetMapping("/viewAll")
 	public ResponseEntity<List<Stream>> getAllStreams(){
 		List<Stream> streams = streamService.getAllStreams();
 		return ResponseEntity.ok(streams);

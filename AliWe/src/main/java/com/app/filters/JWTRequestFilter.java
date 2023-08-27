@@ -49,7 +49,6 @@ public class JWTRequestFilter extends OncePerRequestFilter {
 		} else
 			log.error("Request header DOES NOT contain a Bearer Token");
 		filterChain.doFilter(request, response);
-
 	}
 
 }

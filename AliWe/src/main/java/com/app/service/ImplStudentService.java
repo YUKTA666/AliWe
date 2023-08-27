@@ -54,5 +54,4 @@ public class ImplStudentService implements IStudentService {
 	public void deleteStudent(Long id) {
 		studentRepo.deleteById(id);
 	}
-
 }

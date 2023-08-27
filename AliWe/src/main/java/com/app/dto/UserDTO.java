@@ -35,4 +35,5 @@ public class UserDTO {
     
 	@NotNull(message = "Please specify a role")
     private UserType role;
+	
 }

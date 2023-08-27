@@ -55,5 +55,4 @@ public class Stream {
 		this.streamName = streamName;
 		this.qualifyingMarksPCM = qualifyingMarksPCM;
 	}
-	
 }

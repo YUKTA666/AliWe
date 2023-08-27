@@ -42,7 +42,7 @@ public class StudentController {
 		}
 	}
 	
-	@GetMapping("/details")
+	@GetMapping("/AllStudents")
 	public ResponseEntity<List<Student>> getDetailsOfAllStuendts(){
 		List<Student> students = studentService.getAllStudents();
 		return ResponseEntity.ok(students);

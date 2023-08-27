@@ -31,5 +31,4 @@ public class StreamDTO {
 		this.streamName = streamName;
 		this.qualifyingMarksPCM = qualifyingMarksPCM;
 	}
-
 }

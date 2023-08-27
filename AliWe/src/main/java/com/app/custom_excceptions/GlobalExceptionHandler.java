@@ -39,4 +39,5 @@ public class GlobalExceptionHandler {
 		System.out.println("in catch-all " + e);
 		return new ApiResponse(e.getMessage());
 	}
+	
 }

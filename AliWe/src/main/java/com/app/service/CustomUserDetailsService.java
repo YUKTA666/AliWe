@@ -31,5 +31,4 @@ public class CustomUserDetailsService implements UserDetailsService {
 			throw new ResourceNotFoundException("User not found");
 		}
 	}
-
 }
