@@ -18,7 +18,7 @@ import com.app.entity.User;
 import com.app.service.IUserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 	@Autowired
     private IUserService userService;
@@ -47,20 +47,19 @@ public class UserController {
     	}
     }
     
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
-        User user = new User(userDTO.getEmail() , userDTO.getPassword());
-        User savedUser = userService.createUser(user);
+    @PostMapping("/add")
+    public ResponseEntity<User> createUser(@RequestBody UserDTO userdto) {
+        User savedUser = userService.createUser(userdto);
         return ResponseEntity.created(URI.create("/users/" + savedUser.getId())).body(savedUser);
     }
     
-    @GetMapping
+    @GetMapping("/details")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();

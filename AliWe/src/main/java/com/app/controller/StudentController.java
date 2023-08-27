@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.StudentDTO;
 import com.app.entity.Student;
 import com.app.service.IStudentService;
 
@@ -47,14 +48,15 @@ public class StudentController {
 		return ResponseEntity.ok(students);
 	}
 	
-	@PostMapping
-    public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
+	@PostMapping("/add")
+    public ResponseEntity<Student> saveStudent(@RequestBody StudentDTO student) {
         Student savedStudent = studentService.createStudent(student);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedStudent);
     }
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> deleteStudent(@PathVariable Long id){
 		studentService.deleteStudent(id);
-		return ResponseEntity.noContent().build();	}
+		return ResponseEntity.noContent().build();	
+	}
 }

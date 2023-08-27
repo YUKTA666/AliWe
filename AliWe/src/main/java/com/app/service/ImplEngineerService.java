@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_excceptions.ResourceNotFoundException;
+import com.app.dto.EngineerDTO;
 import com.app.entity.Engineer;
 import com.app.repository.IEngineerRepository;
 
@@ -28,7 +29,8 @@ public class ImplEngineerService implements IEngineerService {
 	}
 
 	@Override
-	public Engineer createEngineer(Engineer engineer) {
+	public Engineer createEngineer(EngineerDTO engineerdto) {
+		Engineer engineer = new Engineer(engineerdto.getStream(), engineerdto.getStatus(), engineerdto.getJobTitle(), engineerdto.getCompany(), engineerdto.getYearsOfExperience(), engineerdto.getAge(), engineerdto.getUser());
 		return engineerRepo.save(engineer);
 	}
 
@@ -43,8 +45,9 @@ public class ImplEngineerService implements IEngineerService {
 		Engineer existingEngineer = engineerRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Engineer not found"));
 		existingEngineer.setUser(engineer.getUser());
+		existingEngineer.setStatus(engineer.getStatus());
         existingEngineer.setJobTitle(engineer.getJobTitle());
-        existingEngineer.setSpecialization(engineer.getSpecialization());
+        existingEngineer.setStream(engineer.getStream());
         existingEngineer.setCompany(engineer.getCompany());
         existingEngineer.setAge(engineer.getAge());
         existingEngineer.setYearsOfExperience(engineer.getYearsOfExperience());

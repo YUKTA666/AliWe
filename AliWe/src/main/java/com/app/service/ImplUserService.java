@@ -3,10 +3,12 @@ package com.app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_excceptions.ResourceNotFoundException;
+import com.app.dto.UserDTO;
 import com.app.entity.User;
 import com.app.repository.IUserRepository;
 
@@ -15,13 +17,22 @@ import com.app.repository.IUserRepository;
 public class ImplUserService implements IUserService {
 	@Autowired
 	private IUserRepository userRepository;
+	
+	@Autowired
+	private PasswordEncoder enc;
     
-    public ImplUserService(IUserRepository userRepository) {
+    public ImplUserService(IUserRepository userRepository, PasswordEncoder enc) {
         this.userRepository = userRepository;
+        this.enc = enc;
     }
     
     @Override
-    public User createUser(User user) {
+    public User createUser(UserDTO userdto) {
+    	User user = new User();
+    	user.setName(userdto.getName());
+    	user.setEmail(userdto.getEmail());
+    	user.setPassword(enc.encode(userdto.getPassword()));
+    	user.setRole(userdto.getRole());
         return userRepository.save(user);
     }
     
@@ -48,7 +59,8 @@ public class ImplUserService implements IUserService {
         
         existingUser.setName(user.getName());
         existingUser.setEmail(user.getEmail());
-        // update other fields if needed
+        existingUser.setPassword(enc.encode(user.getPassword()));
+        existingUser.setRole(user.getRole());
         
         return userRepository.save(existingUser);
     }

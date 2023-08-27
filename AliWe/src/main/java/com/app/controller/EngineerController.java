@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.EngineerDTO;
 import com.app.entity.Engineer;
 import com.app.service.IEngineerService;
 
@@ -48,13 +49,13 @@ public class EngineerController {
 		return engineerService.getAllEngineers();
 	}
 	
-	@PostMapping
-    public ResponseEntity<Engineer> saveEngineer(@RequestBody Engineer engineer) {
+	@PostMapping("/add")
+    public ResponseEntity<Engineer> saveEngineer(@RequestBody EngineerDTO engineer) {
         Engineer savedEngineer = engineerService.createEngineer(engineer);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedEngineer);
     }
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> deleteEngineer(@PathVariable Long id){
 		engineerService.deleteEngineer(id);
 		return ResponseEntity.noContent().build();	}

@@ -14,8 +14,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name = "students")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,72 +42,10 @@ public class Student {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
-	public Student(Long id, LocalDate dob, Double percentage, User user) {
+	public Student(LocalDate dob, Double percentage, User user) {
 		super();
-		this.id = id;
 		this.dob = dob;
 		this.percentage = percentage;
 		this.user = user;
 	}
-
-	public Student() {
-		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public LocalDate getDob() {
-		return dob;
-	}
-
-	public void setDob(LocalDate dob) {
-		this.dob = dob;
-	}
-
-	public Double getPercentage() {
-		return percentage;
-	}
-
-	public void setPercentage(Double percentage) {
-		this.percentage = percentage;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", dob=" + dob + ", percentage=" + percentage + ", user=" + user + "]";
-	}
-
-    
 }
-//@Entity
-//@Table(name = "students")
-//public class Student extends User{
-//
-//	public Student() {
-//		super();
-//	}
-//
-//	public Student(String username, String password, String email) {
-//		super(username, password, email);
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Student [id = " +super.getId()+ ", Name = "+ super.getUsername()+", Email = "+ super.getEmail()+"]";
-//	}
-//	
-//}

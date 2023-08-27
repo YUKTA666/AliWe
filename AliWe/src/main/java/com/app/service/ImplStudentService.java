@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_excceptions.ResourceNotFoundException;
+import com.app.dto.StudentDTO;
 import com.app.entity.Student;
 import com.app.repository.IStudentRepository;
 
@@ -28,7 +29,8 @@ public class ImplStudentService implements IStudentService {
 	}
 
 	@Override
-	public Student createStudent(Student student) {
+	public Student createStudent(StudentDTO studentdto) {
+		Student student = new Student(studentdto.getDob(), studentdto.getPercentage(), studentdto.getUser());
 		return studentRepo.save(student);
 	}
 
