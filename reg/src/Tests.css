@@ -1,0 +1,34 @@
+.cards.main{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.card.main{
+    display: flex;
+    width: 30%;
+    background-color: #191919;
+}
+.card-img-top.main{
+    width:100%;
+    height: 13rem;
+}
+.card-body.main{ 
+    color :white;
+}
+.card-title.main{
+    text-align: center;
+}
+.card-body > a {
+    display: flex;
+    right: 50%;
+    align-self: center;
+    background-color: white;
+    color: black;
+}
+a.btn.btn-primary{
+    padding-left: 45%;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
