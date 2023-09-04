@@ -1,0 +1,35 @@
+.cards{
+    display: flex;
+    margin: 15px;
+    justify-content: space-around;
+    
+}
+
+.card{
+    display: flex;
+    width: 22rem;
+    background-color: #191919;
+}
+.card-img-top{
+    width:22rem;
+    height: 13rem;
+}
+.card-body{ 
+    color :white;
+}
+.card-title{
+    text-align: center;
+}
+.card-body > a {
+    display: flex;
+    right: 50%;
+    align-self: center;
+    background-color: white;
+    color: black;
+}
+a.btn.btn-primary{
+    padding-left: 45%;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}

@@ -1,0 +1,100 @@
+nav ul {
+    list-style: none;
+    display: flex; /* Use flexbox to arrange items horizontally */
+    justify-content: center; /* Center items horizontally */
+    background-color: #333; /* Optional background color for the navigation bar */
+    padding: 10px 0; /* Add padding to the navigation bar */
+    margin: 0;
+  }
+  
+  nav li {
+    margin: 0 15px; /* Adjust spacing between items */
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white; /* Set the text color */
+    font-weight: bold;
+  }
+  
+  
+  /* styles.css */
+  
+  /* styles.css */
+  
+  nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+  }
+  
+  .content {
+    margin-top: 60px; /* Adjust the margin to match the height of the fixed header */
+    margin-bottom: 40px; /* Adjust the margin to match the height of the fixed footer */
+  }
+  
+  .centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(25vh - 120px); /* Adjust the value to include header and footer heights */
+    
+  }
+  
+  
+  /* Center H1 Tag */
+  .center-h1 {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  
+  
+  .about-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the box horizontally */
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the box horizontally */
+  }
+  
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .philospy,
+  .strength,
+  .pedagogy,
+  .accord {
+    flex-basis: calc(25% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    margin-top: 20px; /* Add margin-top for spacing */
+    overflow: hidden;
+  }
+  
+  
