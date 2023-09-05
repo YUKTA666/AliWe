@@ -21,6 +21,6 @@
    3) Manik Tyagi
    4) Akshay More
    5) Ninad Nemade
-# License
-            This project is licensed under the CDAC License.
+# Copyright
+            &copy; Yukta Lalitkumar Behare | CDAC ACTS PUNE | 2023
 Please note that this is a basic example, and you may need to modify it based on your specific requirements and project structure.
